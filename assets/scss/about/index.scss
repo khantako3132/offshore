@@ -1,0 +1,506 @@
+//文字コードはutf-8
+@use "../mixins" as *;
+
+//extend class
+%_text_2col{
+  @include forPc {
+    column-count: 2;
+    column-gap: 50px;
+    line-height: 2;
+  }
+  @include forNonPc {
+    line-height: 2.1;
+  }
+}
+%_btn_square {
+  padding: 30px 0 0;
+  text-align: center;
+}
+%_btn_square-inner {
+  display: inline-block;
+  color: #333;
+  border: 1px solid #666;
+  max-width: 253px;
+  width: 100%;
+  padding: 8px 0 9px;
+  @include font-weight-bold;
+  @include forPc {
+    font-size: 14px;
+    &:hover{
+      &:after{
+        animation: icon_arrow 1.5s infinite ease-out;
+      }
+    }
+  }
+  @include forNonPc {
+    font-size: 15px;
+    &:active{
+      &:after{
+        animation: icon_arrow 1.5s infinite ease-out;
+      }
+    }
+  }
+  &:after{
+    content: '';
+    display: inline-block;
+    height: 7px;
+    width: 7px;
+    margin: -4px 0 0 0;
+    border-right: 2px solid #666;
+    border-bottom: 2px solid #666;
+    transform: rotate(-45deg);
+    vertical-align: middle;
+  }
+}
+%_vision_section{
+  padding: 0 0 70px;
+  position: relative;
+  &:last-child{
+    padding-bottom: 0;
+  }
+}
+
+.main {
+  padding: 0;
+  text-align: left;
+  &__inner {
+    @include forPc {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0;
+    }
+    @include forNonPc {
+      padding: 0;
+    }
+  }
+  &__keyVisual {
+    box-sizing: border-box;
+    padding-bottom: 120px;
+    @include forPc {
+      padding: 145px 0 0;
+      height: 554px;
+    }
+    @include forNonPc {
+      padding: 93px 0 0;
+    }
+    .main__keyVisual__title {
+      .title__shoulder{
+        @include forPc {
+          margin-bottom: 14px;
+        }
+      }
+      .title__large{
+        @include forPc {
+          font-size: 84px;
+        }
+      }
+    }
+    &__image {
+      @include forPc {
+        position: absolute;
+        top: 130px;
+        left: 50%;
+        margin-left: 152px;
+        width: 248px;
+        height: auto;
+      }
+      @include forNonPc {
+        display: block;
+        width: 42.4%;
+        height: auto;
+        margin: 40px auto 0;
+      }
+    }
+    &__lead {
+      color: #444;
+      @include font-weight-bold;
+      @include forPc {
+        margin-top: 34px;
+        font-size: 24px;
+        line-height: 1.58;
+      }
+      @include forNonPc {
+        font-size: 20px;
+        margin: 62px 35px 0;
+        line-height: 1.5;
+      }
+    }
+  }
+  &__lead {
+    @extend %_text_2col;
+    @include forNonPc {
+      margin-top: 30px;
+      padding: 0 35px;
+    }
+  }
+  &__toProfile {
+    @extend %_btn_square;
+    > a {
+      @extend %_btn_square-inner;
+    }
+  }
+  &__section{
+    @include forPc {
+      margin-top: 91px;
+    }
+    @include forNonPc {
+      padding: 40px 35px 0;
+    }
+    &__title{
+      color: #333;
+      .sub{
+        @include font-weight-bold;
+        @include forPc {
+          font-size: 15px;
+          margin-bottom: -20px;
+        }
+        @include forNonPc {
+          font-size: 13px;
+          margin-bottom: -10px;
+        }
+      }
+      .eng {
+        letter-spacing: normal;
+        @include font-weight-black;
+        @include forPc {
+          font-size: 50px;
+        }
+        @include forNonPc {
+          font-size: 27px;
+        }
+      }
+    }
+    &__visionContents {
+      padding: 20px 0 0;
+      .section {
+        &--service,
+        &--creative,
+        &--htwork{
+          @extend %_vision_section;
+        }
+        &--service{
+          padding: 0 0 89px;
+          &:before{
+            content: "";
+            display: block;
+            background: url(/assets/img/about/vision_img02.png) 0 0 no-repeat;
+            background-size: 100%;
+            position: absolute;
+            @include forPc {
+              width: 230px;
+              height: 59px;
+              bottom: 29px;
+              left: 20px;
+            }
+            @include forNonPc {
+              width: 135px;
+              height: 30px;
+              bottom: 40px;
+              left: -20px;
+            }
+          }
+          &:after{
+            content: "";
+            display: block;
+            background: url(/assets/img/about/vision_img04.png) 0 0 no-repeat;
+            background-size: 100%;
+            position: absolute;
+            @include forPc {
+              width: 190px;
+              height: 64px;
+              bottom: -41px;
+              right: 8px;
+            }
+            @include forNonPc {
+              width: 100px;
+              height: 30px;
+              bottom: 20px;
+              right: -20px;
+            }
+          }
+        }
+        &--creative{
+          padding: 0 0 100px;
+          &:after{
+            content: "";
+            display: block;
+            background: url(/assets/img/about/vision_img03.png) 0 0 no-repeat;
+            background-size: 100%;
+            position: absolute;
+            @include forPc {
+              width: 520px;
+              height: 218px;
+              bottom: -103px;
+              right: -100px;
+            }
+            @include forNonPc {
+              width: 150px;
+              height: 85px;
+              bottom: 0;
+              right: 0;
+              background-image: url(/assets/img/about/vision_img03_sp.png);
+            }
+          }
+        }
+        &__title{
+          @include forPc {
+            margin: 0 0 21px;
+          }
+          @include forNonPc {
+            margin: 0 0 5px;
+          }
+          &__sub{
+            @include font-weight-bold;
+            color: #333;
+            @include forPc {
+              font-size: 15px;
+              margin-bottom: -3px;
+            }
+            @include forNonPc {
+              font-size: 13px;
+              margin-bottom: 3px;
+            }
+          }
+          &__text {
+            @include font-weight-bold;
+            color: #333;
+            @include forPc {
+              font-size: 24px;
+            }
+            @include forNonPc {
+              font-size: 15px;
+            }
+          }
+        }
+        &__text{
+          @extend %_text_2col;
+        }
+        &__link{
+          text-align: right;
+          padding: 10px 0 0;
+          position: relative;
+          z-index: 1;
+          a{
+            display: inline-block;
+            @include font-weight-bold;
+            @include forPc {
+              font-size: 16px;
+              &:hover{
+                &:after{
+                  animation: icon_arrow 1.5s infinite ease-out;
+                }
+              }
+            }
+            @include forNonPc {
+              font-size: 12px;
+              &:active{
+                &:after{
+                  animation: icon_arrow 1.5s infinite ease-out;
+                }
+              }
+            }
+            &:after{
+              content: '';
+              display: inline-block;
+              border: 2px solid #333;
+              border-left-width: 0;
+              border-top-width: 0;
+              transform: rotate(-45deg);
+              vertical-align: middle;
+              height: 8px;
+              width: 8px;
+              @include forPc {
+                margin: -4px 0 0 3px;
+              }
+              @include forNonPc {
+                margin: -3px 0 0 3px;
+              }
+            }
+          }
+        }
+      }
+    }
+    &__newsList {
+      border-top: 1px solid #dbdbdb;
+      .item {
+        border-bottom: 1px solid #dbdbdb;
+        line-height: 1.86;
+        > a {
+          display: block;
+          @include forPc {
+            padding: 12px 20px 11px 20px;
+            &:hover {
+              background: #ecebe5;
+            }
+          }
+          @include forNonPc {
+            padding: 30px 0 10px;
+          }
+        }
+        &__inner {
+          position: relative;
+          @include forPc {
+            padding: 0 0 0 140px;
+            .main-list-item-title{
+              @include font-weight-bold;
+            }
+          }
+        }
+        &__title {
+          @include forPc {
+            a:hover &{
+              @include font-weight-bold;
+            }
+          }
+          @include forNonPc {
+            line-height: 2.08;
+          }
+        }
+        &__date {
+          position: absolute;
+          color: #666;
+          @include forPc {
+            top: 1px;
+            left: 0;
+          }
+          @include forNonPc {
+            top: -22px;
+            left: 0;
+          }
+        }
+      }
+    }
+    &__familyList {
+      @include forPc {
+        display: flex;
+        justify-content: space-between;
+      }
+      @include forNonPc {
+        margin: 0 -5px;
+      }
+      .item {
+        > a{
+          display: block;
+          @include forPc {
+            &:hover{
+              .item__link:after{
+                animation: icon_arrow 1.5s infinite ease-out;
+              }
+            }
+          }
+          @include forNonPc {
+            &:active{
+              .item__link:after{
+                animation: icon_arrow 1.5s infinite ease-out;
+              }
+            }
+          }
+        }
+        @include forPc {
+          width: 317px;
+        }
+        @include forNonPc {
+          &:not(:first-child){
+            margin-top: 50px;
+          }
+        }
+        a {
+          &:hover{
+            .item__link{
+              &:after{
+                animation: icon_arrow 1.5s infinite ease-out;
+              }
+            }
+          }
+          &:active{
+            .item__link{
+              &:after{
+                animation: icon_arrow 1.5s infinite ease-out;
+              }
+            }
+          }
+        }
+        &__img {
+          img {
+            vertical-align: top;
+            width: 100%;
+          }
+          @include forPc {
+          }
+          @include forNonPc {
+          }
+        }
+        &__title {
+          color: #444;
+          line-height: 1.4;
+          @include forPc {
+            margin-top: 15px;
+          }
+          @include forNonPc {
+            margin-top: 12px;
+          }
+          > span{
+            letter-spacing: normal;
+            @include font-weight-black;
+            @include forPc {
+              font-size: 34px;
+            }
+            @include forNonPc {
+              font-size: 27px;
+            }
+          }
+          small{
+            display: block;
+            @include font-weight-bold;
+            @include forPc {
+              font-size: 13px;
+            }
+          }
+        }
+        &__text {
+          color: #666;
+          @include forPc {
+            margin-top: 27px;
+          }
+          @include forNonPc {
+            margin-top: 13px;
+            font-size: 12px;
+          }
+        }
+        &__link {
+          display: inline-block;
+          position: relative;
+          color: #444;
+          @include font-weight-bold;
+          @include forPc {
+            margin-top: 23px;
+          }
+          @include forNonPc {
+            margin-top: 12px;
+            font-size: 12px;
+          }
+          &:after {
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            content: '';
+            display: block;
+            height: 7px;
+            width: 7px;
+            margin: -4px 0 0 10px;
+            border: 2px solid #333;
+            border-left-width: 0;
+            border-top-width: 0;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+    }
+    &__link {
+      @extend %_btn_square;
+      > a {
+        @extend %_btn_square-inner;
+      }
+    }
+  }
+}
